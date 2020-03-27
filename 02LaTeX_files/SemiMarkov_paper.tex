@@ -1,0 +1,124 @@
+\documentclass[11pt]{article}
+\renewcommand{\baselinestretch}{1.1}
+
+%%% Add packages here
+	\usepackage{graphics}
+	\usepackage{graphicx}
+	\usepackage{lscape}
+	\usepackage{amsfonts}
+	\usepackage{amsmath}
+	\usepackage{amsthm}
+	\usepackage{amssymb}
+	\usepackage{latexsym}
+	\usepackage{color}
+	\usepackage{verbatim}
+	\usepackage{fancyhdr}
+	\usepackage{fancybox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Margins
+\addtolength{\oddsidemargin}{-.50in}
+\addtolength{\evensidemargin}{-.50in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.40in}
+\addtolength{\textheight}{0.80in}
+
+%%% Header
+	\pagestyle{fancy}
+	\chead{\groupname}
+	\rhead{}
+	\lhead{}
+	\cfoot{\thepage}
+	\renewcommand{\headrulewidth}{0.4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% START MAKING CHANGES HERE!
+
+%%% Group details - PLEASE PUT YOUR GROUP NUMBER HERE!
+\newcommand{\groupname}{Term paper: Stochastic Processes (January - 2020) - Group 1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\clearpage\thispagestyle{empty}
+
+\begin{center}
+	% title
+	\textbf{\huge{
+	Modelling progression of WHO stages for HIV patients using multi-state semi-Markov processes
+	}} \\[1.5cm]
+	% details
+	\Large{
+	STA 8202: Stochastic Processes \\
+	Term paper \\
+	January-April 2020\\[0.5cm]
+	Master of Science in Statistical Science\\
+	Strathmore University	
+	}
+\end{center}
+
+\vspace*{1cm}
+\textbf{\large{Group members:}}\\
+Christopher Maronga (122458) \\
+Lilian Sam (student number) \\
+Laban Bore (student number) \\
+Joram Andrew (student number) \\[0.5cm]
+
+\noindent\textit{Submission Date:} TBD
+
+\vspace*{2.5cm}
+\textbf{\large{Lecturer:}}\\
+Dr. Collins Odhiambo 
+
+
+%%% THE WRITTEN PROJECT - MAX. 20 PAGES (everything included)
+%%% page numbering starts here.
+\newpage \setcounter{page}{1}
+
+\begin{abstract}
+
+\noindent\textbf{Background}: For more than four decades now, human immunodeficiency virus (HIV) infection has become the epicentre of the diseases challenging humanity and a major focus of public health specialists and researchers. Laboratory measurement of plasma HIV viral load is used to determine the extent of body immune destruction as well as monitor the disease progression. The World Health Organization (WHO) has put in place clinical staging that uses various clinical parametres to aid in managing the HIV patients. The WHO staging puts both adults and children into 4 hierarchical stages ;stage 1(asymptomatic) to stage 4 (AIDS) depending on viral load suppression and various observable clinical conditions. \\
+
+\noindent\textbf{Objectives}: We wish to investigate the factors associated with HIV disease progression from one stage to another and outline risk factors for immune deterioration in HIV patients using semi-Markov modelling\\
+
+\noindent\textbf{Methodology}: Mul-tistate stochastic models have gained popularity in investigating dynamics of chronic diseases. In this study, we used a homogenous semi-markov model with defined distribution of waiting time, hazard function of waiting and semi-markov process. We also had selected covariates in an group of HIV patients.
+The aim is to analyze the progression of HIV infection through the three WHO stages and evaluate the contribution of the covariates WHOStaging (stage= 1, stages greater than 1= 0), DCM(yes= 1, No= 0), AgeGroup(adult= 1, child= 0) and Sex(Female= 1, Male= 0)\\
+
+
+\noindent\textbf{Results}: An total of 366 HIV patients were analysed in this study. 552 transitions between different WHQ stages were observed.\\
+
+\noindent\textbf{Conclusions}: text\ldots  \\
+
+\noindent\textit{Key Words}: 
+
+\end{abstract}
+\rule{\textwidth}{0.4pt}
+
+
+\section{Introduction}\label{introduction}
+
+
+\section{Methods and Materials}\label{methods}
+
+
+
+\section{Result}\label{result}
+
+
+\section{Discussion}\label{discussion}
+
+
+
+\begin{thebibliography}{9}
+
+\end{thebibliography}
+
+\section*{Appendix - R code}\label{appendix}
+
+
+\end{document}
+
