@@ -1,2 +1,11 @@
 # Semi-MarkovPaper
-Term paper for modelling HIV data with an aim of publishing
+This repository is meanth for works by Strathmore University Students taking Masters of Science, Statistical sciences tackling a semi-markov modelling poblem on an HIV dataset, with an aim of publishing the output.
+
+# Students details
+ - Christopher Maronga
+ - Lilian Sam
+ - Laban Bore
+ - Joram Andrew
+
+# Supervisor/Lecturer
+ - Dr. Collins Odhiambo - STA 8202: Stochastic Processes
