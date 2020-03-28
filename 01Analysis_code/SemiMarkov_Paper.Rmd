@@ -4,6 +4,31 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: github_document
 ---
 
+
+
+
+Aim:
+
+1. Run and manipulate the codes and write notable insights.
+2. Breakdown the proposed research questions and find a strong connection with the insights in step 1
+3. Build the literature review
+
+#Background
+
+
+# Introduction
+
+## Proposed research topic
+
+"With the dwindling financial aid in support of HIV programming it is imperative that typical program data is used to determine the cost of keeping patients on WHO stage I vs other higher staging. Whereas, other researchers have modelled previously WHO staging, the cost effect at different treatment levels have not been given its due share in literature, in particular, in resource limited setting."
+
+
+# Literature review
+
+
+# Exploratory Analysis of HIV datase
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning = F, message = F,
                       echo = F, dpi = 180,
