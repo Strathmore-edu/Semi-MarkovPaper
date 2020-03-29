@@ -22,8 +22,23 @@ Aim:
 
 "With the dwindling financial aid in support of HIV programming it is imperative that typical program data is used to determine the cost of keeping patients on WHO stage I vs other higher staging. Whereas, other researchers have modelled previously WHO staging, the cost effect at different treatment levels have not been given its due share in literature, in particular, in resource limited setting."
 
+<<>>
+
+## Assumptions
+
+1. Patients put under differentiated care model (DCM 1) was given all the necessary treatment. What is the cost of putting patient under DCM 1 and its impact on patient viral load? (transition between different states)
+
+2. Due to limited resources some patients were put under DCM 0. No significant care. What is the impact on patient viral load?(transition between different states)
+
+
+
 
 # Literature review
+What does past study say about the cost of putting patient under DCM 1 and it impact on transition states versus under DCM 0 and its impact on transition states.
+
+Discuss past model data on WHO staging(viral loads)
+
+
 
 
 # Exploratory Analysis of HIV datase
@@ -48,6 +63,7 @@ HIV_data <- read_excel(here("01Analysis_code", "HIVDataset_SemiMarkov.xlsx"),
 
 ```
 
+View(HIV_data)
 ## The situation (what we are modelling)
 
 ```{r, out.width="100%",fig.align='left',out.height="80%", echo=F}
