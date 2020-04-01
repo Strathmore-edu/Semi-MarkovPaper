@@ -178,12 +178,13 @@ model_fit_1a <- semiMarkov(data = HIV_data,
                           cov = WHOStaging)
 model_fit_1a$table.coef
 
-# computing  hazard rates
+# computing  hazard rates of sojourn time
 hazard(model_fit_1a, cov = 1) # alpha default
 
+#Hazard rates of the semi-markov process
 hazard(model_fit_1a, 
        type = "lambda", 
-       cov = 1) # lambda (semi-markove process)
+       cov = 1) # lambda (semi-markov process)
 ```
 
 # Sojourn time hazard rate plot for WHOStaging
