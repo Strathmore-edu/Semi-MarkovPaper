@@ -1,0 +1,400 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{parskip} 
+\usepackage[left=1.5cm,right=1.5cm,top= 1.5cm,bottom=1.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption} 
+\usepackage{multicol}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+  	
+
+%create global options for evaluating all R codes in my document
+<<echo=F>>=
+knitr::opts_chunk$set(warning = F, message = F,
+                      echo = F, dpi = 180,
+                      fig.width = 10, fig.height = 6, comment = " ")
+@
+
+% load required packages
+<<echo=F>>=
+library(tidyverse)
+library(readxl)
+library(SemiMarkov)
+library(here)
+
+# read in the data
+HIV_data <- read_excel(here("01Analysis_code", "HIVDataset_SemiMarkov.xlsx"),
+                                       sheet = 1) %>% as.data.frame() # read dataset
+
+@
+
+\newpage
+
+\begin{abstract}
+\noindent\textbf{Abstract}—The purpose of this study is to model the transitions of HIV viral load of patients under differentiated care using homogeneous semi-Markov processes. The model focuses on the patient’s WHO staging and DCM as factors. A sample of 366 patients ordered chronologically  was taken from a hospital record in Kenya.  A total of 918 states were observed where 39.87\% and 60.13\% are in similar and different states respectively. The states of viral load were defined based on the WHO HIV staging classification of HIV/AIDS infected patients, we picked 3 states viral loads as follows: <400(stage 1); 400 to 600 (stage 2); 600 to 999 (stage 3). The three states are living states. We assume the living states communicate with each other. We don’t have the absorbing states.\\
+
+\textbf{Keywords:} disease transition, homogeneous semi-Markov process, HIV/AIDS
+
+\end{abstract}
+
+
+\section{Introduction}
+For more than four decades now, human immunodeficiency virus (HIV) infection has become the epicentre of the diseases challenging humanity and a major focus of public health specialists and researchers. Laboratory measurement of plasma HIV viral load is used to determine the extent of body immune destruction as well as monitor the disease progression. The World Health Organization (WHO) has put in place clinical staging that uses various clinical parametres to aid in managing the HIV patients. The WHO staging puts both adults and children into 4 hierarchical stages ;stage 1(asymptomatic) to stage 4 (AIDS) depending on viral load suppression and various observable clinical conditions.\\
+
+The purpose of this study is
+\begin{enumerate}
+    \item[(a.)] What is the effects of putting patients under differentiated care(DCM) on their viral load?
+    \item[(b.)] To model the transition states of HIV viral load of patients under DCM
+    \item[(b.)] To determine and select the appropriate distributions which describes the various transition states.
+
+\end{enumerate}
+
+
+\section{Literature Overview}
+\begin{multicols}{2}
+In most longitudinal medical studies on the progression of healthy individuals to chronic diseases, the natural development is often expressed in terms of distinct states. The analyses in such studies where individuals may transition among several states are performed by using multi-state models which can either be discrete or continuous. Multi-state models based on the discrete-time Markov chain have become popular in analyzing longitudinal data collected in chronic disease studies. Such models are also called Markov chain transitional models (Agresti 2002). Kryscio, Schmitt, and Salazar (2006) used a Markov chain model to identify risk factors
+associated with transitions from cognitively normal to various forms of mild cognitive impairment (MCI) and then from MCI into early dementia, with death before dementia as a competing state. A continuous-time MSM is a model for a continuous time stochastic process allowing individuals to move among a finite number of states (Meira-Machado et al. (2009). There exists an extensive literature on continuous-time MSMs (see, e.g., Hougard (1999) or Commenges (1999))., Hubbard and Zhou (2011), or Joly, Commenges, and Letenneur (1998), Joly, and Commenges (1999), Joly et al. (2002). Applications of continuous-time MSMs can be found in liver cirrhosis (Andersen, Esbjerg, and Sorensen (2000)), dementia (Joly, Commenges, and Letenneur 1998, Joly, and Commenges 1999, Joly et al. 2002; Hubbard and Zhou 2011) among others.
+The use of multi-state Markov models to analyze the factors associated with transitions between different states of chronicity has been suggested for chronic diseases and the cost-effectiveness of various therapeutic regimes (Shih et al., 2007; Pan et al., 2007; Gil et al., 2007). Recent studies have shown that the predicted probability of patients that changing their status given
+his/her current status allows the measurements of medical scientific progresses due to the advances in the treatment of the HIV/AIDS (D'Amico et al., 2009). Masala et al. (2014; Goshu and Dessie, 2013; Giuseppe et al., 2007) analyzed HIV/AIDS dynamic evolution as defined by CD4 levels from a macroscopic point of view by means of homogeneous semi-Markov stochastic processes Numerical analyses of the homogeneous semi-Markov process are dealt by
+Corradi et al. (2004; Janssen and Manca, 2001). Other more readings include (Davidov and Zelen, 2000; Viladent and Van Ackere, 2007; Satten and Sternberg, 1999; Baryarama et al., 2005). In this study, the author, a procedure to obtain the parameters in a model with covariates has been reported (Maciulis et al., 2009; Gentlemann et al.,1985; Mathieu et al., 2007; Pѐrez-Ocόn et al., 2001).
+\end{multicols}
+
+\section{Data Exploration and Analysis}
+  \subsection{Data Description}
+WHO staging (0 for any staging greater than 1 i.e. 2,3 and 4. and 1 for stage 1), DCM(yes= 1, No= 0), AgeGroup(adult= 1, child= 0) and Sex(Female= 1, Male= 0)  \\
+A total of 552 different transitions states and 366 HIV patients was studied as shown in the table below.
+
+
+\begin{minipage}{0.45\textwidth}
+<<echo=F>>=
+table.state(HIV_data) #states table
+@
+\end{minipage}%
+\hfill
+\begin{minipage}{0.45\textwidth}
+\begin{tabular}{|p{\textwidth}}
+Transition probability matrix
+<<echo=F>>=
+tm<-table(HIV_data$state.h,HIV_data$state.j) #states table
+tm<-tm/rowSums(tm)
+tm
+@
+\end{tabular}
+\end{minipage}%
+\\
+
+The probability of transitioning from a lower state to a higher state is lower than the vice versa. There is a high probability of patient remaining in the same state, more illustrated by 1-->1 transition.\\
+
+Drawing of HIV transition states\\
+\includegraphics[scale=0.2]{diagram2.PNG}
+
+
+<<echo=F>>=
+# define states
+hiv_states <- c("1", "2", "3")
+
+# assuming weibull distribution ----------------------------------
+# transition matrix 1
+my_trans1 <- matrix(FALSE, ncol = 3, nrow = 3)
+
+# assign transition time distributions -- assuming weibull
+my_trans1[1, 2:3] <- c("W", "W") # '1'-->'2', '1'-->'3'
+my_trans1[2, c(1, 3)] <- c("W", "W") # '2'-->'1', '2'-->'3'
+my_trans1[3, c(1, 2)] <- c("W", "W") # # '3'-->'1', '3'-->'2'
+
+# assuming exponential distribution ----------------------------------
+# transition matrix 2
+my_trans2 <- matrix(FALSE, ncol = 3, nrow = 3)
+
+# assign transition time distributions -- assuming weibull
+my_trans2[1, 2:3] <- c("E", "E") # '1'-->'2', '1'-->'3'
+my_trans2[2, c(1, 3)] <- c("E", "E") # '2'-->'1', '2'-->'3'
+my_trans2[3, c(1, 2)] <- c("E", "E") # # '3'-->'1', '3'-->'2'
+
+# assuming exponentiated weibull distribution ----------------------------------
+# transition matrix 2
+my_trans3 <- matrix(FALSE, ncol = 3, nrow = 3)
+
+# assign transition time distributions -- assuming weibull
+my_trans3[1, 2:3] <- c("EW", "EW") # '1'-->'2', '1'-->'3'
+my_trans3[2, c(1, 3)] <- c("EW", "EW") # '2'-->'1', '2'-->'3'
+my_trans3[3, c(1, 2)] <- c("EW", "EW") # # '3'-->'1', '3'-->'2'
+
+@
+
+
+\subsection{Model Fitting and Selection}
+  
+\textbf{Weibull distribution}\\
+
+The transitions between the different states are significant since all the p-values < 10\%, at \(\alpha\) = 10\%.
+<<echo=F>>=
+# model without covariates  to evaluate distribution parameters
+# Are the distribution paramtres significantly different from 1? Wald test
+
+# weibull distribution
+model_fit_1 <- semiMarkov(data = HIV_data, 
+                      states = hiv_states,
+                      mtrans = my_trans1)
+
+model_fit_1$table.dist
+@
+
+\textbf{Exponential distribution}
+
+The p-value for transition between 1-->3 is \textbf{0.1726} which is greater than  =10\%.This transition under exponential is insignificant. 
+<<echo=F>>=
+# exponential distribution
+model_fit_2 <- semiMarkov(data = HIV_data, 
+                      states = hiv_states,
+                      mtrans = my_trans2)
+
+model_fit_2$table.dist # sojourn time distribution between 1 --> 3 cannot be assumed to be Exponential.
+
+@
+
+\textbf{Exponentiated weibull distribution}
+The p-value for transition between 1-->3 is \textbf{0.729} which is greater than  10\%.This transition under exponential-weibul is insignificant.\\
+<<echo=F>>=
+# Exponentiated weibull
+model_fit_3 <- semiMarkov(data = HIV_data, 
+                      states = hiv_states,
+                      mtrans = my_trans3)
+
+model_fit_3$table.dist
+@
+
+We can assume the distribution for all the various transition states follows a Weibull distribution as from the above output. Furthermore, the exponential distribution assumes constant hazard rate over time, which might not be the case in our case.\\
+It is also possible to look closer and tailor a distribution for each transition separately within the transition matrix for optimum results. This is more pronounced for 1-->3 transitions as their p-values differs for Exponential and Exponential-Weibull\\
+\newpage
+\subsubsection{Covariates}
+
+All our covariates are time fixed, hence we are going to use \textbf{"Model-fit-1"} to estimate hazard rates of covariates for both sojourn time and hazard rate due to semi-Markov process.\\
+
+\textbf{Models with select covariates}
+<<echo=F>>=
+WHOStaging <- as.data.frame(HIV_data$WHOStaging)
+DCM <- as.data.frame(HIV_data$DCM)
+AgeGroup <- as.data.frame(HIV_data$AgeGroup)
+Sex <- as.data.frame(HIV_data$Sex)
+@
+
+\begin{enumerate}
+  \item[1] \textbf{WHOStaging}
+<<echo=F>>=
+model_fit_1a <- semiMarkov(data = HIV_data,
+                          states = hiv_states,
+                          mtrans = my_trans1,
+                          cov = WHOStaging)
+model_fit_1a$table.coef
+
+# Computing  hazard rates of sojourn time
+hazard(model_fit_1a, cov = 1) # alpha default
+# Hazard rates of the semi-markov process
+hazard(model_fit_1a, 
+       type = "lambda", 
+       cov = 1) # lambda (semi-markov process)
+@
+
+\begin{minipage}{0.45\textwidth}
+Sojourn time hazard rate plot for WHOStaging(0,1)\\
+<<echo=F, fig=T>>=
+plot(hazard(model_fit_1a, cov = 1),
+     hazard(model_fit_1a, cov = 0),
+     transitions = "12")
+@
+\end{minipage}%
+\begin{minipage}{0.45\textwidth}
+\begin{tabular}{|p{\textwidth}}
+Semi-Markov process hazard rate plot for WHOStaging\\
+<<echo=F,fig=T>>=
+par(mar=c(1,1,1,1))
+plot(hazard(model_fit_1a, cov = 1, type = "lambda"),
+     hazard(model_fit_1a, cov = 0, type = "lambda"),
+     transitions = "12")
+@
+\end{tabular}
+\end{minipage}%
+\end{enumerate}
+
+WHOStaging as a variables has no cause-effect relationship on HIV patient transition states.We drop this variable from our model.\\
+\begin{enumerate}
+  \item[2] \textbf{DCM}
+<<echo=F>>=
+model_fit_1b <- semiMarkov(data = HIV_data,
+                          states = hiv_states,
+                          mtrans = my_trans1,
+                          cov = DCM)
+model_fit_1b$table.coef
+
+# computing  hazard rates
+hazard(model_fit_1b, cov = 1) # alpha default
+
+hazard(model_fit_1b, 
+       type = "lambda", 
+       cov = 1) # lambda (semi-markove process)
+@
+
+\begin{minipage}{0.45\textwidth}
+Sojourn time hazard rate plot for DCM\\
+<<echo=F, fig=T>>=
+# sojourn time hazard rate for DCM
+plot(hazard(model_fit_1b, cov = 1),
+     hazard(model_fit_1b, cov = 0),
+     transitions = "13")
+@
+\end{minipage}%
+\begin{minipage}{0.45\textwidth}
+\begin{tabular}{|p{\textwidth}}
+Semi-Markov process hazard rate plot for DCM\\
+<<echo=F,fig=T>>=
+par(mar=c(1,1,1,1))
+# hazard rate due to semi-process
+plot(hazard(model_fit_1b, cov = 1, type = "lambda"),
+     hazard(model_fit_1b, cov = 0, type = "lambda"),
+     transitions = "13")
+@
+\end{tabular}
+\end{minipage}%
+\end{enumerate}
+
+From the two graphs above we can see putting patients under differentiated care model(black line) has a significant impact on their viral load as compared to putting them under zero care (red line). \\The DCM is an important variable to consider in this model.
+\begin{enumerate}
+  \item[3] \textbf{AgeGroup}
+<<echo=F>>=
+model_fit_1c <- semiMarkov(data = HIV_data,
+                          states = hiv_states,
+                          mtrans = my_trans1,
+                          cov = AgeGroup)
+model_fit_1c$table.coef
+
+# computing  hazard rates
+hazard(model_fit_1c, cov = 1) # alpha default
+
+hazard(model_fit_1c, 
+       type = "lambda", 
+       cov = 1) # lambda (semi-markove process)
+@
+
+\begin{minipage}{0.45\textwidth}
+Sojourn time hazard rate plot for Agegroup\\
+<<echo=F, fig=T>>=
+# sojourn time hazard rate for agegroup
+plot(hazard(model_fit_1c, cov = 1),
+     hazard(model_fit_1c, cov = 0),
+     transitions = "13")
+@
+\end{minipage}%
+\begin{minipage}{0.45\textwidth}
+\begin{tabular}{|p{\textwidth}}
+Semi-Markov process hazard rate plot for Agegroup\\
+<<echo=F,fig=T>>=
+par(mar=c(1,1,1,1))
+# hazard rate due to semi-process
+plot(hazard(model_fit_1c, cov = 1, type = "lambda"),
+     hazard(model_fit_1c, cov = 0, type = "lambda"),
+     transitions = "13")
+@
+\end{tabular}
+\end{minipage}%
+\end{enumerate}
+
+As depicted on the graphs, Adults(black line) can transition to a higher states than children(red line). So the age of patients matters in HIV viral load.\\
+\begin{enumerate}
+  \item[4] \textbf{Sex}
+<<echo=F>>=
+model_fit_1d <- semiMarkov(data = HIV_data,
+                          states = hiv_states,
+                          mtrans = my_trans1,
+                          cov = Sex)
+model_fit_1d$table.coef
+
+# computing  hazard rates
+hazard(model_fit_1d, cov = 1) # alpha default
+
+hazard(model_fit_1d, 
+       type = "lambda", 
+       cov = 1) # lambda (semi-markove process)
+@
+
+\begin{minipage}{0.45\textwidth}
+Sojourn time hazard rate plot for sex\\
+<<echo=F, fig=T>>=
+# sojourn time hazard rate for sex
+plot(hazard(model_fit_1d, cov = 1),
+     hazard(model_fit_1d, cov = 0),
+     transitions = "32")
+@
+\end{minipage}%
+\begin{minipage}{0.45\textwidth}
+\begin{tabular}{|p{\textwidth}}
+Semi-Markov process hazard rate plot for Sex\\
+<<echo=F,fig=T>>=
+par(mar=c(1,1,1,1))
+# hazard rate due to semi-process Sex
+plot(hazard(model_fit_1d, cov = 1, type = "lambda"),
+     hazard(model_fit_1d, cov = 0, type = "lambda"),
+     transitions = "13")
+@
+\end{tabular}
+\end{minipage}%
+\end{enumerate}
+
+Male(red line) are vulnerable to a higher HIV viral load as compared to female(back line). 
+
+
+\textbf{Multiple covariate modelling}\\
+
+In combining the covariates, we will need to study the univariate and check which covariate affect what transition and specify in "cov-tra" argument.(Not a final model for now)\\
+
+<<echo=F>>=
+model_fit_1e <- semiMarkov(data = HIV_data,
+                          states = hiv_states,
+                          mtrans = my_trans1,
+                          cov = data.frame(WHOStaging, DCM, AgeGroup, Sex))
+model_fit_1e$table.coef
+
+# computing  hazard rates
+hazard(model_fit_1e) # alpha default
+
+hazard(model_fit_1e, 
+       type = "lambda") # lambda (semi-markove process)
+@
+
+  
+\section{Discussion of Results}
+
+Weibull distribution is the most accurate distribution to explains the various transitions states as compared to exponential and exponential-weibul distribution. It is good to know that one can have a select transition states(1-->3) to follow a weibull and the others exponetial distribution. This is open for discussion.\\
+The most significant covariates to consider is DCM, sex and agegroup since they have a significant influence on the transition of HIV patient from one state to another.
+\section{Conclusion}
+
+HIV patients under differentiated care model have a reduced HIV viral load as compared to those not under any HIV care. It important to note that age and sex of the patient play a significant role in the care of the patient. The health of the adult male are prone to waste away as compared to female. This is attributable to masculinity and health seeking behaviours of the two. For instance female have a routine clinic visits as compared to female. Generally, adults have a weaker immunity as compared to children as illustrated by the transition graphs i.e adults transition to a higher states than children.\\
+I conclude that all patients should be put under differentiated care model in order to reduce their viral loads and manage the cost of HIV treatment.
+
+I suggest further research to be carried out on the impact of cost of treating HIV patients under different conditions i.e monetary terms, patients clinic visit culture, education, availability of health infrastructure etc.
+\newpage
+\begin{thebibliography}{9}
+\bibitem{wan16} 
+Lijie Wan, Wenjie Lou, Erin Abner richard J. Kryscio. 
+\textit{A comparison of time-homogeneous Markov chain and Markov process multi-state models, Communications in Statistics:}. 
+Case Studies, Data Analysis and Applications, 2:3-4, 92-100, 2016.
+
+
+\bibitem{Goshu} 
+Goshu AT, Dessie ZG. 
+\textit{Modelling progression of HIV/AIDS disease stages using semi-Markov Processes.} Journal of Data Science. 2013;11:269-280.
+
+\bibitem{CDC}
+\textit{Centre for Disease Control (CDC). Revised Classification System for HIV Infection and Expanded Surveillance Case Dentition for AIDS among Adolescents and Adults, MMWR Recommendations and Reports.} 1992;41(17):1-19.
+
+\bibitem{doi}
+\url{https://doi.org/10.9734/arrb/2019/v31i330049}
+\end{thebibliography}
+\end{document}
