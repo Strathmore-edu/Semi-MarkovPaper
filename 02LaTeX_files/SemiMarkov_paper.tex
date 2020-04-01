@@ -2,18 +2,19 @@
 \renewcommand{\baselinestretch}{1.1}
 
 %%% Add packages here
-	\usepackage{graphics}
-	\usepackage{graphicx}
-	\usepackage{lscape}
-	\usepackage{amsfonts}
-	\usepackage{amsmath}
-	\usepackage{amsthm}
-	\usepackage{amssymb}
-	\usepackage{latexsym}
-	\usepackage{color}
-	\usepackage{verbatim}
-	\usepackage{fancyhdr}
-	\usepackage{fancybox}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{lscape}
+\usepackage{amsfonts}
+\usepackage{parskip}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage{verbatim}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% Margins
@@ -24,12 +25,12 @@
 \addtolength{\textheight}{0.80in}
 
 %%% Header
-	\pagestyle{fancy}
-	\chead{\groupname}
-	\rhead{}
-	\lhead{}
-	\cfoot{\thepage}
-	\renewcommand{\headrulewidth}{0.4pt}
+\pagestyle{fancy}
+\chead{\groupname}
+\rhead{}
+\lhead{}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -44,81 +45,105 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\clearpage\thispagestyle{empty}
+	\clearpage\thispagestyle{empty}
+	
+	\begin{center}
+		% title
+		\textbf{\huge{
+				Predicting WHO stages' cost effectiveness using HIV Viral Load among HIV patients in a resource limited setting.
+		}} \\[1.5cm]
+		% details
+		\Large{
+			STA 8202: Stochastic Processes \\
+			Term paper \\
+			January-April 2020\\[0.5cm]
+			Master of Science in Statistical Science\\
+			Strathmore University	
+		}
+	\end{center}
+	
+	\vspace*{1cm}
+	\textbf{\large{Group members:}}\\
+	Christopher Maronga (122458) \\
+	Lilian Sam (124441) \\
+	Laban Bore (124270) \\
+	Joram Andrew (124765) \\[0.5cm]
+	
+	\noindent\textit{Submission Date:} TBD
+	
+	\vspace*{2.5cm}
+	\textbf{\large{Lecturer:}}\\
+	Dr. Collins Odhiambo 
+	
+	
+	%%% THE WRITTEN PROJECT - MAX. 20 PAGES (everything included)
+	%%% page numbering starts here.
+	\newpage \setcounter{page}{1}
+	
+	\begin{abstract}
+		\noindent Multi-state Semi-Markov processes are useful tools for studying complex dynamics such as chronic diseases. Laboratory measurement of plasma HIV viral load is used to determine the extent of body immune destruction as well as monitor the disease progression. The World Health Organization (WHO) has put in place clinical staging that uses various clinical parameters to aid in managing the HIV patients. The WHO staging puts both adults and children into 4 hierarchical stages ;stage 1(asymptomatic) to stage 4 (AIDS) depending on viral load suppression and various observable clinical conditions.The aim of this study was to use Semi-Markov chain to determine the cost of keeping patients on WHO stage 1 verse other higher staging.\vspace*{2mm}
+		
+		\noindent Estimating factors associated with transitions between each stage of progression for chronic diseases, multi-state modeling is highly recommended. The major predictors of the intensity of transitions between different states of HIV patients were DCM, Age group, Sex and DCM status. To predict WHO stages’ cost effectiveness, using semi-Markov concept the HIV viral load was classified as follows; stage 1 $(VL <400$ copies/ml), stage 2 $(400< VL <600)$ and stage 3 $(600<VL< 999)$\vspace*{2mm}
+		
+		A total of 366 HIV patients were analyzed in this study. 552 transitions between different WHQ stages were observed.
+		
+		[Brief summary of the results (after analysis) and resolutions to be discussed]
+		
+	\end{abstract}
+	\rule{\textwidth}{0.4pt}
+	
+	
+	\section{Introduction}\label{introduction}
+	For more than four decades now, human immunodeficiency virus (HIV) infection has become the epicenter of the diseases challenging humanity and a major focus of public health specialists and researchers. Laboratory measurement of plasma HIV viral load is used to determine the extent of body immune destruction as well as monitor the disease progression. The World Health Organization (WHO) has put in place clinical staging that uses various clinical parameters to aid in managing the HIV patients. The WHO staging puts both adults and children into four hierarchical stages ;stage 1(asymptomatic) to stage 4 (AIDS)depending on viral load suppression and various observable clinical conditions.\\
+	
+	Increase in viral load values results to an increase of HIV transmission risks. HIV Viral load(VL) is the measure of the number of HIV viruses in the bloodstream majorly measured in milliliter. Patients are put in Differentiated Care Model (DCM) to suppress the patient's VL to undetectable level or a level too low for virus detection by a VL test. Most studies of HIV/AIDS have analyzed the factors associated with therapeutic failure, such as death, opportunistic disease, detect Viral Load (VL) or low levels of immunity, using semi parametric Cox models (Pradeep et al., 2010; Muralidhar et al., 2010; Keiser et al., 2010;Koethe et al., 2010; Neuhaus et al., 2010). From literature the cost effectiveness of viral load monitoring depends on the test prices and rates of virologic failure. Virologic failure would determine the importance of viral monitoring. A higher rate of virologic failure due to low adherence or high resistance rates would result to higher viral load monitoring resulting to higher cost effectiveness ration of viral load testing. \\
+	
+	%HIV transmission risk increases as viral load values increases. 
+	Following 2003 WHO guidelines, the measure of HIV viral load was not recommended for use in a resource limited setting as it was for the high-income counties. This was due to in availability of the equipment's and the high cost of viral test. Since then interventions to cub this challenge where adopted and under 2004 revised WHO guidelines VL testing was available in some resource limited setting. Through available, the challenge is affordability especially for higher stages. For this study DCM follow up was used to help maintain patients in lower stages (stage I). Recent studies have shown that the predicted probability of patients that changing their status given their current state allows the measurements of medical scientific progresses due to the advances in the treatment of the HIV/AIDS (D’Amico et al., 2009). Since the discovery of HIV/AIDS, numerous mathematical models Blasi and Manca (2004) have been developed to describe infectious disease transmission dynamics, understand the mechanisms of epidemic propagation, assess the impact of interventions on public health or forecast the future of epidemics.\\
+	
+	Numerical analyses of the homogeneous semi-Markov process are dealt by Corradi et al. (2004; Janssen and Manca, 2001). Other more literature include (Davidov and Zelen, 2000; Viladent and Van Ackere, 2007; Satten and Sternberg, 1999; Baryarama et al., 2005). Several researchers have studied Markov processes with covariates and a procedure to obtain the parameters in a model with covariates has been reported For longitudinal chronic disease studies with categorical response variables, the natural development of a chronic disease is often expressed in terms of different states and multistate models are widely used to model the progression of individuals through these states (Goshu and Dessie, 2013).
+	\\ 
+	
+	%The main objective of our study was to investigate the factors associated with HIV disease progression from one stage to another and outline risk factors for immune deterioration in HIV patients using semi-Markov modelling\\
+	
+	In this study, we will use multi-state semi-Markov process to study the determine factors associated with the progression between different states of HIV.The data was collected from a resource limited setting is used to investigate the factors associated with HIV disease progression from one stage to another using Semi-Markov concept. Additionally, the aim of the study was to outline risk factors for immune deterioration in HIV during the DCM follow-up. The VL of patents was classified as the following, based on the worst of the disease; stage I the Asymptotic stage, stage II thee Mildly Symptomatic Stage and stage III the Moderated Symptomatic Stage. \\
+	
+	
+	\section{Methods and Materials}
+	Multistate stochastic models have gained popularity in investigating dynamics of chronic diseases. In this study, we used a homogeneous Semi-Markov model with defined distribution of waiting time, hazard function of waiting and Semi-Markov process. We also had selected covariates in an group of HIV patients. The aim is to analyze the progression of HIV infection through the three WHO stages and evaluate the contribution of the covariates.The covariates under consideration were WHOstaging (stage= 1, stages greater than 1= 0), DCM(yes= 1, No= 0), AgeGroup(adult= 1,child= 0) and Sex(Female= 1, Male= 0)\\
+	
+	Semi-Markov assumes that the probability of a patient goes to from one state to another is not depend on the past states where a patient was, but depends on the current state.Additionally, probability that a patient jump from one state to another depends on the elapsed time in the current state.The target population for this study is HIV patients under DCM. A total of 366 HIV patients were analyzed in this study. There were 552 transitions between different WHQ stages were observed. The data was assumed to have a Markov property; that is the current and future states depends only on the immediate past and present states respectively. It is also studied under continuous time frame work explaining the use of multi-state model based on Markov process.Continuous homogeneous Semi-Markov model was employed in the analysis. 
+	\begin{center}
+		\includegraphics[scale=0.5]{stages}\\
+	\end{center}
 
-\begin{center}
-	% title
-	\textbf{\huge{
-	Modelling progression of WHO stages for HIV patients using multi-state semi-Markov processes
-	}} \\[1.5cm]
-	% details
-	\Large{
-	STA 8202: Stochastic Processes \\
-	Term paper \\
-	January-April 2020\\[0.5cm]
-	Master of Science in Statistical Science\\
-	Strathmore University	
-	}
-\end{center}
-
-\vspace*{1cm}
-\textbf{\large{Group members:}}\\
-Christopher Maronga (122458) \\
-Lilian Sam (124441) \\
-Laban Bore (124270) \\
-Joram Andrew (student number) \\[0.5cm]
-
-\noindent\textit{Submission Date:} TBD
-
-\vspace*{2.5cm}
-\textbf{\large{Lecturer:}}\\
-Dr. Collins Odhiambo 
-
-
-%%% THE WRITTEN PROJECT - MAX. 20 PAGES (everything included)
-%%% page numbering starts here.
-\newpage \setcounter{page}{1}
-
-\begin{abstract}
-
-\noindent\textbf{Background}: For more than four decades now, human immunodeficiency virus (HIV) infection has become the epicentre of the diseases challenging humanity and a major focus of public health specialists and researchers. Laboratory measurement of plasma HIV viral load is used to determine the extent of body immune destruction as well as monitor the disease progression. The World Health Organization (WHO) has put in place clinical staging that uses various clinical parametres to aid in managing the HIV patients. The WHO staging puts both adults and children into 4 hierarchical stages ;stage 1(asymptomatic) to stage 4 (AIDS) depending on viral load suppression and various observable clinical conditions. \\
-
-\noindent\textbf{Objectives}: We wish to investigate the factors associated with HIV disease progression from one stage to another and outline risk factors for immune deterioration in HIV patients using semi-Markov modelling\\
-
-\noindent\textbf{Methodology}: Mul-tistate stochastic models have gained popularity in investigating dynamics of chronic diseases. In this study, we used a homogenous semi-markov model with defined distribution of waiting time, hazard function of waiting and semi-markov process. We also had selected covariates in an group of HIV patients.
-The aim is to analyze the progression of HIV infection through the three WHO stages and evaluate the contribution of the covariates WHOStaging (stage= 1, stages greater than 1= 0), DCM(yes= 1, No= 0), AgeGroup(adult= 1, child= 0) and Sex(Female= 1, Male= 0)\\
-
-
-\noindent\textbf{Results}: An total of 366 HIV patients were analysed in this study. 552 transitions between different WHQ stages were observed.\\
-
-\noindent\textbf{Conclusions}: text\ldots  \\
-
-\noindent\textit{Key Words}: 
-
-\end{abstract}
-\rule{\textwidth}{0.4pt}
-
-
-\section{Introduction}\label{introduction}
-
-
-\section{Methods and Materials}\label{methods}
-
-
-
-\section{Result}\label{result}
-
-
-\section{Discussion}\label{discussion}
-
-
-
-\begin{thebibliography}{9}
-
-\end{thebibliography}
-
-\section*{Appendix - R code}\label{appendix}
-
-
+	%For the effectiveness of our study several distributions were tried, and individual distribution p-values Were keenly examined for significance. Weibull sojourn time distribution was the most appropriate distribution.
+	%%and is used as sojourn time distribution under multi-state models.
+	It is assumed that process spends some time in a given state and random time has distribution $G_{ij}(x)$,Weibull sojourn time distribution was found to be the appropriate distribution and used as sojourn time distribution and hazard rate distribution under multi-state models. Weibull distribution: The hazard function is defined as 
+	$$\displaystyle F_{hj}(t)=\lambda_{hj}\left(\frac{1}{\sigma_{hj}}\right)t^{\lambda _{h j}-1}\,\,t\geq 0,$$
+	where  $F_{hj}(x)$ is the measure of patient's likelihood of transiting to next stage at time t. Again, Weibull distribution is used because different values of $\left(\frac{1}{\sigma_{hj}}\right)$ can result to increasing hazard rate$\left(\frac{1}{\sigma_{hj}}>1\right)$, decreasing hazard rate,$\left(\frac{1}{\sigma_{hj}}<1\right)$ or constant hazard rate $\left(\frac{1}{\sigma_{hj}}=0\right)$. 
+	Weibull sojourn time is time is defined as 
+	$$G_{hj}(t)=1- exp(\sigma^{-1}_{hj}t^{\lambda_{hj}}),\,\, t\geq 0$$
+	where $\lambda_{hj}$ determines the shape of hazard rate function and how $\sigma^{-1}_{hj}$ can be varied. 
+	\label{methods}
+	
+	
+	
+	\section{Result}\label{result}
+	Data containing total of 366 HIV patients was analysed in this study. 552 transitions between different WHQ stages were observed with an assumption of no transition within same state.
+	
+		\begin{center}
+		\includegraphics[scale=0.5]{despritive}\\
+	\end{center}
+	\section{Discussion}\label{discussion}
+	
+	
+	
+	\begin{thebibliography}{9}
+		
+	\end{thebibliography}
+	
+	\section*{Appendix - R code}\label{appendix}
+	
+	
 \end{document}
-

@@ -14,6 +14,7 @@ knitr::opts_chunk$set(warning = F, message = F,
 library(tidyverse)
 library(readxl)
 library(SemiMarkov)
+library(scales)
 library(here)
 ```
 
@@ -43,6 +44,78 @@ A total of 552 transitions from 366 HIV patients in the data as shown in the tab
 
 ```{r some_exploratory}
 table.state(HIV_data)
+
+```
+
+## Desctiptive statistics
+
+```{r}
+# recode HIV data for descriptive stats
+hiv_recoded <- HIV_data %>% 
+        mutate_at(vars(WHOStaging, DCM, AgeGroup, Sex), as.factor)
+
+hiv_recoded <- hiv_recoded %>% 
+        mutate(
+        Sex = fct_recode(Sex,
+                   "Female" = "1",
+                   "Male" = "0"),
+        DCM = fct_recode(DCM,
+                         "Yes" = "1",
+                         "No"="0"),
+        WHOStaging = fct_recode(WHOStaging,
+                                "Stage 1" = "1",
+                                "Stages 2,3,4" = "0"),
+        AgeGroup = fct_recode(AgeGroup,
+                               "Adult" = "1",
+                              "Child" = "0")) %>% 
+        distinct(Patientid, .keep_all = T)
+
+# sojourn time
+hiv_recoded %>% 
+        summarise(
+        sojourn_time = paste(round(mean(duration_months, na.rm = T), 1), 
+                             "(", round(sd(duration_months, na.rm = T),1), ")", sep = "")
+        )
+
+# DCM
+hiv_recoded %>% 
+        group_by(DCM) %>% 
+        summarise(
+                total = n()
+        ) %>% 
+        mutate(
+                total = paste(total, "(", percent(total/366), ")", sep = "")
+        )
+
+# WHO staging
+ hiv_recoded %>% 
+        group_by(WHOStaging) %>% 
+        summarise(
+                total = n()
+        )%>% 
+        mutate(
+                total = paste(total, "(", percent(total/366), ")", sep = "")
+        )
+
+# Age group
+hiv_recoded %>% 
+        group_by(AgeGroup) %>% 
+        summarise(
+                total = n()
+        )%>% 
+        mutate(
+                total = paste(total, "(", percent(total/366), ")", sep = "")
+        )
+
+# Sex
+hiv_recoded %>% 
+        group_by(Sex) %>% 
+        summarise(
+                total = n()
+        )%>% 
+        mutate(
+                total = paste(total, "(", percent(total/366), ")", sep = "")
+        )
 
 ```
 
