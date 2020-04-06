@@ -15,6 +15,13 @@
 \usepackage{verbatim}
 \usepackage{fancyhdr}
 \usepackage{fancybox}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{parskip} % for skiping paragraphs
+\usepackage{float}
+\usepackage{subcaption} % side by side plots
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% Margins
@@ -130,11 +137,41 @@
 	
 	
 	\section{Result}\label{result}
-	Data containing total of 366 HIV patients was analysed in this study. 552 transitions between different WHQ stages were observed with an assumption of no transition within same state.
+	Data containing total of 366 HIV patients was analysed in this study. 552 transitions between different WHO stages were observed with an assumption of no transition within same state. 
 	
-		\begin{center}
-		\includegraphics[scale=0.5]{despritive}\\
-	\end{center}
+	The study comprised of 209 male patients and 157 female patients. 42\% of the patients were under differentiated care model and a majority were adults (94\%) Table \ref{my_table}
+	
+\begin{table}[H]
+	\centering
+	\caption{Patient Baseline Characteristics}
+	\label{my_table}
+	\begin{tabular}{|l|c|} % arguments to define the alignment of contents of the table, borders
+		\hline
+		Characteristics & \\
+		 \hline 
+		\textbf{Waiting time — months median (IQR)} & 3 (1.2) \\
+		\hline
+		\textbf{Gender— no. (\%)} &  \\ 
+		Male & 209(57)\\
+		Female & 157(43) \\ 
+		\hline
+		\textbf{Age group — no. (\%)} &  \\
+		Children & 21(6) \\
+		Adults & 345(94)\\
+		\hline
+		\textbf{WHO Staging — no. (\%)} &  \\
+		Stage 1  &	273(75)\\
+		Stages 2,3,4  &	93(25)\\
+		\hline
+		\textbf{DCM — no. (\%)}  & \\
+		Yes & 155(42)\\
+		No & 211(58)\\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+
 	\section{Discussion}\label{discussion}
 	
 	
