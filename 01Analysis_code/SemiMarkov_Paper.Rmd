@@ -4,6 +4,46 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: github_document
 ---
 
+
+
+
+Aim:
+
+1. Run and manipulate the codes and write notable insights.
+2. Breakdown the proposed research questions and find a strong connection with the insights in step 1
+3. Build the literature review
+
+#Background
+
+
+# Introduction
+
+## Proposed research topic
+
+"With the dwindling financial aid in support of HIV programming it is imperative that typical program data is used to determine the cost of keeping patients on WHO stage I vs other higher staging. Whereas, other researchers have modelled previously WHO staging, the cost effect at different treatment levels have not been given its due share in literature, in particular, in resource limited setting."
+
+<<>>
+
+## Assumptions
+
+1. Patients put under differentiated care model (DCM 1) was given all the necessary treatment. What is the cost of putting patient under DCM 1 and its impact on patient viral load? (transition between different states)
+
+2. Due to limited resources some patients were put under DCM 0. No significant care. What is the impact on patient viral load?(transition between different states)
+
+
+
+
+# Literature review
+What does past study say about the cost of putting patient under DCM 1 and it impact on transition states versus under DCM 0 and its impact on transition states.
+
+Discuss past model data on WHO staging(viral loads)
+
+
+
+
+# Exploratory Analysis of HIV datase
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning = F, message = F,
                       echo = F, dpi = 180,
@@ -24,6 +64,7 @@ HIV_data <- read_excel(here("01Analysis_code", "HIVDataset_SemiMarkov.xlsx"),
 
 ```
 
+View(HIV_data)
 ## The situation (what we are modelling)
 
 ```{r, out.width="100%",fig.align='left',out.height="80%", echo=F}
@@ -210,12 +251,13 @@ model_fit_1a <- semiMarkov(data = HIV_data,
                           cov = WHOStaging)
 model_fit_1a$table.coef
 
-# computing  hazard rates
+# computing  hazard rates of sojourn time
 hazard(model_fit_1a, cov = 1) # alpha default
 
+#Hazard rates of the semi-markov process
 hazard(model_fit_1a, 
        type = "lambda", 
-       cov = 1) # lambda (semi-markove process)
+       cov = 1) # lambda (semi-markov process)
 ```
 
 # Sojourn time hazard rate plot for WHOStaging
