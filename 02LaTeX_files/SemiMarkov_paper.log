@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.6)  6 APR 2020 12:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.6)  7 APR 2020 20:27
 entering extended mode
 **./SemiMarkov_paper.tex
 (SemiMarkov_paper.tex
@@ -723,37 +723,309 @@ File: stages.png Graphic file (type png)
  <use stages.png>
 Package pdftex.def Info: stages.png used on input line 124.
 (pdftex.def)             Requested size: 250.8365pt x 188.50378pt.
- [3 <./stages.png>]
+ [3 <./stages.png>] [4]
+Overfull \hbox (4.63028pt too wide) in paragraph at lines 189--189
+[]\OT1/cmtt/m/n/10.95 Type Index Transition Sigma   SD Lower_CI Upper_CI Wald_H
+0 Wald_test p_value[] 
+ []
 
-LaTeX Warning: Empty `thebibliography' environment on input line 181.
 
-[4] [5] (SemiMarkov_paper.aux) ) 
+Overfull \hbox (16.12766pt too wide) in paragraph at lines 190--190
+[]\OT1/cmtt/m/n/10.95 1 dist     1     1 -> 2 9.363 0.84     7.72    11.01    1
+.00     99.16 <0.0001[] 
+ []
+
+
+Overfull \hbox (16.12766pt too wide) in paragraph at lines 191--191
+[]\OT1/cmtt/m/n/10.95 2 dist     2     1 -> 3 2.945 0.13     2.70     3.19    1
+.00    236.13 <0.0001[] 
+ []
+
+
+Overfull \hbox (16.12766pt too wide) in paragraph at lines 192--192
+[]\OT1/cmtt/m/n/10.95 3 dist     3     2 -> 1  6.64 0.47     5.72     7.56    1
+.00    143.66 <0.0001[] 
+ []
+
+
+Overfull \hbox (16.12766pt too wide) in paragraph at lines 193--193
+[]\OT1/cmtt/m/n/10.95 4 dist     4     2 -> 3 3.069 0.11     2.85     3.29    1
+.00    335.01 <0.0001[] 
+ []
+
+
+Overfull \hbox (16.12766pt too wide) in paragraph at lines 194--194
+[]\OT1/cmtt/m/n/10.95 5 dist     5     3 -> 1 2.432 0.03     2.37     2.49    1
+.00   2049.64 <0.0001[] 
+ []
+
+
+Overfull \hbox (16.12766pt too wide) in paragraph at lines 195--195
+[]\OT1/cmtt/m/n/10.95 6 dist     6     3 -> 2 5.723 0.34     5.06     6.38    1
+.00    197.66 <0.0001[] 
+ []
+
+
+Overfull \hbox (4.63028pt too wide) in paragraph at lines 198--198
+[]\OT1/cmtt/m/n/10.95 Type Index Transition    Nu   SD Lower_CI Upper_CI Wald_H
+0 Wald_test p_value[] 
+ []
+
+
+Overfull \hbox (16.12766pt too wide) in paragraph at lines 199--199
+[]\OT1/cmtt/m/n/10.95 1 dist     7     1 -> 2 1.358 0.12     1.12     1.59    1
+.00      8.91  0.0028[] 
+ []
+
+
+Overfull \hbox (16.12766pt too wide) in paragraph at lines 200--200
+[]\OT1/cmtt/m/n/10.95 2 dist     8     1 -> 3   3.9 0.41     3.09     4.71    1
+.00     49.17 <0.0001[] 
+ []
+
+
+Overfull \hbox (16.12766pt too wide) in paragraph at lines 201--201
+[]\OT1/cmtt/m/n/10.95 3 dist     9     2 -> 1 1.412 0.11     1.20     1.63    1
+.00     14.09  0.0002[] 
+ []
+
+
+Overfull \hbox (16.12766pt too wide) in paragraph at lines 202--202
+[]\OT1/cmtt/m/n/10.95 4 dist    10     2 -> 3 3.588 0.29     3.02     4.16    1
+.00     79.49 <0.0001[] 
+ []
+
+
+Overfull \hbox (16.12766pt too wide) in paragraph at lines 203--203
+[]\OT1/cmtt/m/n/10.95 5 dist    11     3 -> 1 7.687 0.44     6.83     8.55    1
+.00    233.01 <0.0001[] 
+ []
+
+
+Overfull \hbox (16.12766pt too wide) in paragraph at lines 204--204
+[]\OT1/cmtt/m/n/10.95 6 dist    12     3 -> 2  1.62 0.12     1.38     1.86    1
+.00     26.33 <0.0001[] 
+ []
+
+[5] [6]
+Overfull \hbox (4.63028pt too wide) in paragraph at lines 270--270
+[]\OT1/cmtt/m/n/10.95 1 0.009670852 7.917587e-09 0.009888796 6.339280e-08 2.841
+143e-17 0.003148779[] 
+ []
+
+
+Overfull \hbox (4.63028pt too wide) in paragraph at lines 271--271
+[]\OT1/cmtt/m/n/10.95 2 0.012398106 5.910476e-08 0.013155461 3.812349e-07 2.926
+843e-15 0.004839069[] 
+ []
+
+
+Overfull \hbox (4.63028pt too wide) in paragraph at lines 272--272
+[]\OT1/cmtt/m/n/10.95 3 0.014337144 1.915738e-07 0.015545698 1.088916e-06 4.404
+385e-14 0.006221876[] 
+ []
+
+
+Overfull \hbox (4.63028pt too wide) in paragraph at lines 273--273
+[]\OT1/cmtt/m/n/10.95 4 0.015894035 4.412786e-07 0.017500278 2.293046e-06 3.015
+330e-13 0.007436454[] 
+ []
+
+
+Overfull \hbox (4.63028pt too wide) in paragraph at lines 274--274
+[]\OT1/cmtt/m/n/10.95 5 0.017217035 8.429676e-07 0.019183772 4.085968e-06 1.340
+817e-12 0.008539482[] 
+ []
+
+
+Overfull \hbox (4.63028pt too wide) in paragraph at lines 275--275
+[]\OT1/cmtt/m/n/10.95 6 0.018379226 1.430539e-06 0.020678530 6.550854e-06 4.537
+962e-12 0.009561015[] 
+ []
+
+[7]
+Overfull \hbox (44.8711pt too wide) in paragraph at lines 322--322
+[]\OT1/cmtt/m/n/10.95 Transition Covariates Estimation SD   Lower_CI  Upper_CI 
+Wald_H0 Wald_test  p_value[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 323--323
+[]\OT1/cmtt/m/n/10.95 1 -> 2 WHOStaging -0.36872749 0.30    -0.95     0.21    0
+.00      1.55  0.213[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 324--324
+[]\OT1/cmtt/m/n/10.95 1 -> 3 WHOStaging -0.91922346 0.33    -1.56    -0.27    0
+.00      7.82  0.005[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 325--325
+[]\OT1/cmtt/m/n/10.95 2 -> 1 WHOStaging -0.22311757 0.29    -0.80     0.35    0
+.00      0.58  0.446[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 326--326
+[]\OT1/cmtt/m/n/10.95 2 -> 3 WHOStaging -0.74868708 0.25    -1.24    -0.26    0
+.00      8.87  0.002[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 327--327
+[]\OT1/cmtt/m/n/10.95 3 -> 1 WHOStaging  0.57206092 0.21     0.16     0.99    0
+.00      7.23  0.007[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 328--328
+[]\OT1/cmtt/m/n/10.95 3 -> 2 WHOStaging -0.10327220 0.25    -0.58     0.38    0
+.00      0.18  0.671[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 329--329
+[]\OT1/cmtt/m/n/10.95 1 -> 2        DCM -0.43752124 0.27    -0.97     0.10    0
+.00      2.58  0.108[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 330--330
+[]\OT1/cmtt/m/n/10.95 1 -> 3        DCM  0.44316768 0.33    -0.20     1.08    0
+.00      1.85  0.173[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 331--331
+[]\OT1/cmtt/m/n/10.95 2 -> 1        DCM -0.02232851 0.21    -0.43     0.38    0
+.00      0.01  0.920[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 332--332
+[]\OT1/cmtt/m/n/10.95 2 -> 3        DCM  0.15200911 0.25    -0.34     0.65    0
+.00      0.36  0.548[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 333--333
+[]\OT1/cmtt/m/n/10.95 3 -> 1        DCM -0.51065141 0.22    -0.94    -0.08    0
+.00      5.41  0.020[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 334--334
+[]\OT1/cmtt/m/n/10.95 3 -> 2        DCM -0.05777773 0.22    -0.48     0.37    0
+.00      0.07  0.791[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 335--335
+[]\OT1/cmtt/m/n/10.95 1 -> 2  AgeGroup  0.03742363 1.47    -2.84     2.91    0.
+00      0.00  1.0000[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 336--336
+[]\OT1/cmtt/m/n/10.95 1 -> 3  AgeGroup  0.02672299 0.54    -1.03     1.08    0.
+00      0.00  1.0000[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 337--337
+[]\OT1/cmtt/m/n/10.95 2 -> 1  AgeGroup -0.71287521 0.57    -1.83     0.41    0.
+00      1.56  0.2117[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 338--338
+[]\OT1/cmtt/m/n/10.95 2 -> 3  AgeGroup -0.64311349 0.46    -1.55     0.26    0.
+00      1.94  0.1637[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 339--339
+[]\OT1/cmtt/m/n/10.95 3 -> 1  AgeGroup -0.80077197 0.30    -1.39    -0.21    0.
+00      7.17  0.0074[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 340--340
+[]\OT1/cmtt/m/n/10.95 3 -> 2  AgeGroup -0.48140132 0.47    -1.40     0.43    0.
+00      1.06  0.3032[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 341--341
+[]\OT1/cmtt/m/n/10.95 1 -> 2       Sex  0.31755771 0.24    -0.16     0.79    0.
+00      1.72  0.1897[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 342--342
+[]\OT1/cmtt/m/n/10.95 1 -> 3       Sex -0.20694755 0.32    -0.83     0.42    0.
+00      0.42  0.5169[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 343--343
+[]\OT1/cmtt/m/n/10.95 2 -> 1       Sex  0.16509519 0.21    -0.24     0.57    0.
+00      0.64  0.4237[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 344--344
+[]\OT1/cmtt/m/n/10.95 2 -> 3       Sex -0.04055598 0.25    -0.54     0.46    0.
+00      0.03  0.8625[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 345--345
+[]\OT1/cmtt/m/n/10.95 3 -> 1       Sex  0.02865203 0.21    -0.39     0.45    0.
+00      0.02  0.8875[] 
+ []
+
+
+Overfull \hbox (10.37897pt too wide) in paragraph at lines 346--346
+[]\OT1/cmtt/m/n/10.95 3 -> 2       Sex -0.84278936 0.27    -1.36    -0.32    0.
+00     10.04  0.0015[] 
+ []
+
+
+LaTeX Warning: Empty `thebibliography' environment on input line 358.
+
+[8] [9] (SemiMarkov_paper.aux) ) 
 Here is how much of TeX's memory you used:
- 4377 strings out of 493323
- 64029 string characters out of 3128713
- 130715 words of memory out of 3000000
- 7825 multiletter control sequences out of 15000+200000
- 12804 words of font info for 53 fonts, out of 3000000 for 9000
+ 4387 strings out of 493323
+ 64155 string characters out of 3128713
+ 134715 words of memory out of 3000000
+ 7833 multiletter control sequences out of 15000+200000
+ 14623 words of font info for 61 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,12n,43p,1163b,272s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,12n,43p,1163b,343s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/cmaronga/AppData/Local/Programs/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cmaronga/AppData/Loca
 l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cmaro
 nga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ><C:/Users/cmaronga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmmi10.pfb><C:/Users/cmaronga/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmmi6.pfb><C:/Users/cmaronga/AppData/Local/Programs/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/cmaronga/AppData/Local
-/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cmarong
-a/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C
-:/Users/cmaronga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr8.pfb><C:/Users/cmaronga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb><C:/Users/cmaronga/AppData/Local/Programs/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/cmaronga/AppData/Local/Pro
-grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on SemiMarkov_paper.pdf (6 pages, 211557 bytes).
+e1/public/amsfonts/cm/cmmi12.pfb><C:/Users/cmaronga/AppData/Local/Programs/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/cmaronga/AppData/Loca
+l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/cmaron
+ga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+C:/Users/cmaronga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr12.pfb><C:/Users/cmaronga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmr8.pfb><C:/Users/cmaronga/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/cmaronga/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/cmaronga/A
+ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/
+Users/cmaronga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmtt10.pfb>
+Output written on SemiMarkov_paper.pdf (10 pages, 247476 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
+ 94 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
