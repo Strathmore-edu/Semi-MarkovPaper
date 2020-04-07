@@ -1,4 +1,4 @@
-# Semi-MarkovPaper
+# Semi-Markov Modelling ( Using HIV dataset)
 
 This repository is for a research works by Strathmore University Students taking Masters of Science, Statistical sciences tackling a semi-markov modelling poblem on an HIV dataset, with an aim of publishing the output.
 
