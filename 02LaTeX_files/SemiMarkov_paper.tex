@@ -316,7 +316,9 @@ cov 1 cov 2 cov 3 cov 4
 
 \section{Effects of Covariates on state transiton}
 
-Including all covariates in the model....
+Including all the covariates in the model, we obtain the tests of the respective coefficients whether they are significantly different from zero across various state transitions.
+
+Being an adult(AgeGroup = 1) is associated with a reduced risk of transitioning from stage 3 to 1 whereas Female patients have a reduced risk of transition from state 3 to 2 compared to male patients. WHO staging is most influential of all the covariates in the multiple model, being significant in half of the possible transitions
 
 \begin{verbatim}
 Transition Covariates Estimation SD   Lower_CI  Upper_CI Wald_H0 Wald_test  p_value
@@ -348,13 +350,29 @@ Transition Covariates Estimation SD   Lower_CI  Upper_CI Wald_H0 Wald_test  p_va
 
 
 
-
 	\section{Discussion}\label{discussion}
-	
+Application of semi-markov model with a Weibull distribution of waiting times in the presence of 4 covariates in the HIV dataset shows a varying significant effect of different covariates on different transitions states. A preliminary univariate modelling however showed only 2 covariates having influence on at least 3 or more transitions i.e. WHOstaging and DCM variables.
+
+In the combined model however(all covariates), except DCM, each covariate explains at least a risk associated transition of one state to another in the presence/absence of the variable. Further objective model selection needs to be done and compute relative risks associated with covariates for state to state transiton
 	
 	
 	\begin{thebibliography}{9}
-		
+	\bibitem{wan16} 
+	Lijie Wan, Wenjie Lou, Erin Abner richard J. Kryscio. 
+	\textit{A comparison of time-homogeneous Markov chain and Markov process multi-state models, Communications in Statistics:}. 
+	Case Studies, Data Analysis and Applications, 2:3-4, 92-100, 2016.
+	
+	
+	\bibitem{Goshu} 
+	Goshu AT, Dessie ZG. 
+	\textit{Modelling progression of HIV/AIDS disease stages using semi-Markov Processes.} Journal of Data Science. 2013;11:269-280.
+	
+	\bibitem{CDC}
+	\textit{Centre for Disease Control (CDC). Revised Classification System for HIV Infection and Expanded Surveillance Case Dentition for AIDS among Adolescents and Adults, MMWR Recommendations and Reports.} 1992;41(17):1-19.
+	
+	\bibitem{doi}
+	\url{https://doi.org/10.9734/arrb/2019/v31i330049}
+
 	\end{thebibliography}
 	
 	\section*{Appendix - R code}\label{appendix}
